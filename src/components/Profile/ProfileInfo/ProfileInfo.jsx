@@ -14,12 +14,12 @@ if(!props.profile){
       </div>
       <div className={c.descriptionBlock}>
           <div>{props.profile.aboutMe}</div>
-          <img src={props.profile.photos.large}/>
+          <img src={props.profile.photos.large} alt='person-img'/>
           <div>{props.profile.fullName}</div>
           <div>{props.profile.lookingForAJobDescription}</div>
           <div>lookingForAJob: {props.profile.lookingForAJob ? 'yes' : 'no'}</div>
-        ava + description
-          <ProfileStatus status={'Hello'}/>
+        <p> ava + description</p>
+          <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
       </div>
     </div>
   )

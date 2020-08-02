@@ -21,10 +21,12 @@ export const usersAPI = {
 
             case 'Follow':
                 return instance.post(`1.0/follow/${id}`)
+            default:
+                throw Error
         }
     },
     getProfile(userId){
-        return instance.get(`1.0/profile/${userId}`)
+        return profileAPI.getProfile(userId)
     }
 }
 export const authAPI = {
@@ -32,4 +34,15 @@ export const authAPI = {
         return instance.get(`1.0/auth/me`)
     }
 
+}
+export const profileAPI = {
+    getProfile(userId){
+        return instance.get(`1.0/profile/${userId}`)
+    },
+    getStatus(userId){
+        return instance.get(`1.0/profile/status/${userId}`)
+    },
+    updateStatus(status){
+        return instance.put(`1.0/profile/status`,{status:status})
+    }
 }
